@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require("express-session");
 const app = express();
+const mongoURI = process.env.MONGO_URI;
 const port = process.env.PORT || 8099;
 
 app.set('view engine', 'ejs');
@@ -23,7 +24,7 @@ app.use('/api',require('./Routes/books'));
 app.use('/api',require('./Routes/user'));
 app.use(express.static('public'));
 
-mongoose.connect('mongodb+srv://Edwin:123@cluster0.ovgui.mongodb.net/a?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=>{
         console.log('MongoDB Connected!');
         app.listen(port, () => {
