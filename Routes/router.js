@@ -6,7 +6,7 @@ const router = express.Router();
 const checkSession = (req, res, next) => {
     try{
         if (!req.session.userdata || !req.session){
-            return res.redirect('/')
+            return res.redirect('/login')
         }
         next();
     }catch (error){
@@ -65,11 +65,11 @@ router.post('/signup', async (req, res)=>{
 });
 
 //Login
-router.get('/',(req, res)=> {
+router.get('/login',(req, res)=> {
    res.status(200).render('login',{msg:''});
 });
 
-router.post('/', async (req, res) => {
+router.post('/login', async (req, res) => {
     try{
         //find the data by the input email.
         if (await user.findOne({email:req.body.email})){
