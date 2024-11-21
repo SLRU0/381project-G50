@@ -1,5 +1,4 @@
 const express = require('express');
-const user = require('../models/userinfo');
 const bookdata = require('../models/bookdata');
 const borrowedbookdata = require('../models/userborrowedbooks');
 const router = express.Router();
@@ -16,7 +15,7 @@ const upload = multer({storage});
 const checkSession = (req, res, next) => {
     try {
         if (!req.session.userdata || !req.session) {
-            return res.redirect('/login');
+            return res.redirect('/');
         }
         next();
     } catch (error) {

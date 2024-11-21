@@ -5,7 +5,7 @@ const router = express.Router();
 const checkSession = (req, res, next) => {
     try {
         if (!req.session.userdata || !req.session) {
-            return res.redirect('/login');
+            return res.redirect('/');
         }
         next();
     } catch (error) {

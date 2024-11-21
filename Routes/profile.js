@@ -5,7 +5,7 @@ const router = express.Router();
 const checkSession = (req, res, next) => {
     try{
         if (!req.session.userdata || !req.session){
-            return res.redirect('/login');
+            return res.redirect('/');
         }
         next();
     }catch (error){
@@ -23,7 +23,7 @@ router.get('/profile',checkSession,async (req, res)=> {
             email:req.session.userdata.email,
         });
     }catch (error){
-        res.redirect('/login');
+        res.redirect('/');
     }
 })
 
@@ -37,7 +37,7 @@ router.post('/profile/deleteAccount',checkSession,async (req, res)=> {
         _id:req.session.userdata._id
     }).then(()=>{
         req.session.destroy();
-        res.redirect('/login');
+        res.redirect('/');
     })
 })
 
