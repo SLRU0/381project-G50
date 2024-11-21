@@ -26,9 +26,10 @@ app.use(express.static('public'));
 mongoose.connect('mongodb+srv://Edwin:123@cluster0.ovgui.mongodb.net/a?retryWrites=true&w=majority&appName=Cluster0')
     .then(()=>{
         console.log('MongoDB Connected!');
-        app.listen(port, () => {
-            // this for the local testing.
-            console.log(`Listening on port http://localhost:${port}/login`);
-        });
     })
     .catch((err)=>{console.log(err)})
+
+app.listen(port, () => {
+    // this for the local testing.
+    console.log(`Listening on port http://localhost:${port}/login`);
+});
