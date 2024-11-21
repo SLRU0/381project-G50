@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require("express-session");
 const app = express();
-const mongoURI = process.env.MONGO_URI;
+const mongoURI = process.env.MONGODB_URI;
 const port = process.env.PORT || 8099;
 
 app.set('view engine', 'ejs');
