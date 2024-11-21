@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <%if (admin===true){%>
+        Welcome! <%=name%> (<%=adminstring%>)<br><br>
+        <a href="/profile">profile</a><br><br>
+        <a href="api/user">All user profile</a><br><br>
+        <a href="/api/borrow">List all books</a><br><br>
+        <a href="/api/add">AddBooks</a><br><br>
+        <a href="/logout">Logout</a>
+    <%} else {%>
+        Welcome! <%=name%><br><br>
+        <a href="/profile">profile</a><br><br>
+        <a href="/api/borrow">Borrow</a><br><br>
+        <a href="/api/books">Books</a><br><br>
+        <a href="/logout">Logout</a>
+    <%}%>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-left: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            border: 1px solid black;
+            margin-bottom: 10px;
+        }
+
+        div.book {
+            padding: 10px;
+        }
+
+        .back {
+            display: inline-block;
+        }
+
+        .buttonS {
+            font-size: 18px
+        }
+
+        .search {
+            width: 600px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<%if(booklength!==0){%>
+    <div>
+        <h1>List all books</h1>
+        <span><%=msg%></span>
+    </div>
+    <ul>
+        <% for (let i = 0;i < booklength; i++){ %>
+            <li>
+                <div class="book">
+                    <h2><%= bookarray[i].Title %></h2><br>
+                    <b>Author:</b><%= bookarray[i].Author %><br>
+                    <b>ISBN:</b><%= bookarray[i].ISBN %><br>
+                    <% if(IsAdmin === false){ %>
+                        <form action="/api/borrow" method="post">
+                            <input type="hidden" name="isbn" value="<%= bookarray[i].ISBN %>">
+                            <input type="submit" value="Borrow" class="buttonS">
+                        </form>
+                    <% } %>
+                </div>
+            </li>
+        <% } %>
+    </ul>
+<%}else{%>
+    <h1>There is not books</h1>
+<%}%>
+
+<form action="/home" class="back">
+    <input type="submit" value="home">
+</form>
+</body>
+</html>

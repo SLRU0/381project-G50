@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserBooks</title>
+    <style>
+        *{
+            margin-bottom: 10px;
+        }
+        body{
+            display: flex;
+            flex-flow: column;
+        }
+        div{
+            border: black solid 1px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book List</h1>
+    <%for(let i=0;i<books.length;i++){%>
+        <div>
+            <%for (let j=0;j<librarybooks.length;j++){%>
+                <%if (books[i].ISBN===librarybooks[j].ISBN){%>
+                    <h3><%=librarybooks[j].Title%></h3>
+                    <a href='<%=librarybooks[j].path.replace('public','')%>'>Open</a>
+                <%}%>
+            <%}%>
+        </div>
+    <%}%>
+    <form action="/home">
+        <input type="submit" value="home">
+    </form>
+    <%=msg%>
+</body>
+</html>

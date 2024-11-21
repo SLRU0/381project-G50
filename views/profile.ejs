@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <style>
+        #fname,#lname,#useremail,#password,#buttonf{
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h1>Profile</h1>
+    <div class="box">
+        <div>
+            <form action="/profile/changeName">
+                <span>First Name: <%=firstName%></span><button type="submit" >Edit</button><br>
+                <span>Last Name: <%=lastName%></span>
+                <br>
+            </form>
+        </div>
+        <div>
+            <form action="/profile/changeEmail">
+                <span>Email: <%=email%></span>
+                <button type="submit">Edit</button>
+            </form>
+        </div>
+        <div>
+            <form action="/profile/changePassword">
+                <span>Password</span>
+                <button type="submit">Edit</button><br>
+            </form>
+        </div>
+    </div>
+    <form action="/home">
+        <div><button type="submit">home</button></div>
+    </form>
+    <form action="/profile/deleteAccount">
+        <div><button type="submit">DeleteAccount</button></div>
+    </form>
+</body>
+</html>

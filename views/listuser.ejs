@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style-type: none;
+            padding-left: 0;
+            margin-left: 0;
+            box-sizing: border-box;
+        }
+        li{
+            border: 1px solid black;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/api/user">
+        <input type="text" name="search" placeholder="search">
+    </form>
+    <ul class="list">
+        <%for (let i=0;i<data.length;i++){%>
+            <li>
+                <b>FirstName :</b><%=data[i].first_name%><br>
+                <b>LastName :</b><%=data[i].last_name%><br>
+                <b>Email :</b><%=data[i].email%><br>
+                <b>Password</b><br>
+                <b>Gander :</b><%=data[i].gander%><br>
+                <b>Admin :</b><%=data[i].admin%><br>
+            </li>
+        <%}%>
+    </ul>
+    <form action="/home">
+        <input type="submit" value="Home">
+    </form>
+</body>
+</html>

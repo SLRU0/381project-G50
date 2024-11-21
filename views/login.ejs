@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h1>Login Your account</h1>
+<form action="/login" method="POST">
+    <label>
+        <input type="text" placeholder="Email" name="email" required>
+    </label>
+    <label>
+        <input type="password" placeholder="Password" name="password" required>
+    </label>
+    <button type="submit">Login</button>
+</form>
+<%=msg%>
+<form action="/signup">
+    If you don't have an account please click the button below.
+    <br>
+    <button type="submit">SignUp</button>
+</form>
+</body>
+</html>
