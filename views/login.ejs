@@ -1,73 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-<style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial;
-        }
-        h1 {
-        	font-size: 30px;
-        	font-weight: 100;
-        	margin: 0;
-        	color: grey;
-        }
-        h2 {
-        	font-size: 50px;
-        	font-weight: 100;
-        	margin: 0;
-        	color: grey;
-        }
-        .container {
-            text-align: center;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        form {
-            margin: 10px ;
-            color: grey;
-        }
-        input {
-            display: block;
-            margin: 10px auto;
-            padding: 10px;
-            width: 80%;
-            max-width: 300px;
-        }
-        button {
-            padding: 10px 20px;
-            margin: 20px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-<div class="container">
-<h1>Login to your</h1>
-<h2>Online Library</h2>
-<form action="/" method="POST">
-    <label>
-        <input type="text" placeholder="Email" name="email" required>
-    </label>
-    <label>
-        <input type="password" placeholder="Password" name="password" required>
-    </label>
-    <button type="submit">Login</button>
-</form>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>Login</title>
 
-<form action="/signup">
-    <i>If you don't have an account please click the button below.</i>
-    <br>
-    <button type="submit">SignUp</button>
-</form>
-</div>
-</body>
+    </head>
+    <body class="loginPage">
+
+
+    <div class="row">
+
+        <div class="column left" id="container">
+            <img id="loginImage" src="https://picsum.photos/640/480" />
+        </div>
+        <div class="column right" id="container_right">
+                <form action="/" method="POST">
+                    <h1>Online Library</h1>
+                    <h3>Happy to see you again!</h3>
+                    <label>Login
+                    <input type="text" placeholder="Email" name="email" required>
+                    </label>
+                    <label>Password
+                        <input type="password" placeholder="Password" name="password" required>
+                    </label>
+                    <button type="submit" class="btnLogin">Sign in</button>
+                </form>
+
+                <form action="/signup">
+                    <i>Do not have an account?</i>
+                    <button type="submit" class="btnLogin">Sign Up</button>
+                </form>
+        </div>
+    </div>
+    </body>
 </html>

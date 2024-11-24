@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="divBg">
+<div class="base" style="max-width: 300px">
     <form method="POST" action="/profile/changeEmail">
         Email: <input type="text" name="email" required><br>
-        <button type="submit">Save</button>
+        <button type="submit" class="button" style="width: 100%">Save</button>
     </form>
     <form action="/profile">
-        <input type="submit" value="Cancel">
+        <input type="submit" value="Cancel" class="danger">
     </form>
+</div>
 </body>
 </html>

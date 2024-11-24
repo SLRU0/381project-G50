@@ -1,83 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-</head>
-<body>
-<h1>SignUp</h1>
-<p>Fill in the personal information</p>
-<form action="/signup" method="post">
-    <div>
-        <label>
-            First Name: <input
-                    type="text"
-                    name="first_name"
-                    placeholder="First Name"
-                    required
-                    minlength="3"
-                    maxlength="35"
-            >
-        </label>
-        <br>
-        <br>
-        <label>
-            Last Name: <input
-                    type="text"
-                    name="last_name"
-                    placeholder="Last Name"
-                    required
-                    minlength="2"
-                    maxlength="35"
-            >
-        </label>
-        <br>
-        <br>
-        <label>
-            Email: <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-            >
-        </label>
-        <br>
-        <br>
-        <label>
-            Password: <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    required
-            >
-        </label>
-        <br>
-        <br>
-        <label>
-            Confirm Password: <input
-                    type="password"
-                    name="confirm_password"
-                    placeholder="Password"
-                    required
-            >
-        </label>
-        <%=error%>
-    </div>
-    <br>
-    <label>
-        Gander:<br>Male:<input
-                type="radio"
-                name="Gander"
-                value="Male"
-        > Female: <input
-                type="radio"
-                name="Gander"
-                value="Female"
-        >
-    </label>
-    <br>
-    <br>
-    <button type="submit">Submit</button>
-</form>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Register</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="divBg">
+            <div class="base">
+                <h1>SignUp</h1>
+                <p>Fill in the personal information</p>
+                <form action="/signup" method="post">
+                    <div>
+                        <label>
+                            First Name: <input
+                                    type="text"
+                                    name="first_name"
+                                    placeholder="First Name"
+                                    required
+                                    minlength="3"
+                                    maxlength="35"
+                            >
+                        </label>
+                        <label>
+                            Last Name: <input
+                                    type="text"
+                                    name="last_name"
+                                    placeholder="Last Name"
+                                    required
+                                    minlength="2"
+                                    maxlength="35"
+                            >
+                        </label>
+                        <label>
+                            Email: <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    required
+                            >
+                        </label>
+                        <label>
+                            Password: <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    required
+                            >
+                        </label>
+                        <label>
+                            Confirm Password: <input
+                                    type="password"
+                                    name="confirm_password"
+                                    placeholder="Password"
+                                    required
+                            >
+                        </label>
+                        <%=error%>
+                    </div>
+                    <br>
+                    <p>Gender:</p>
+                        <label>
+                                Male: <input
+                                type="radio"
+                                name="Gander"
+                                value="Male"
+                        > Female: <input
+                                type="radio"
+                                name="Gander"
+                                value="Female"
+                        >
+                        </label>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>

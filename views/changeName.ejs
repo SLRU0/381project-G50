@@ -1,17 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
-<body>
+<body class="divBg" >
+    <div class="base" style="max-width: 300px">
     <form action="/profile/changeName" method="post">
         First Name : <input type="text" name="firstName"><br>
         Last Name : <input type="text" name="lastName"><br>
-        <input type="submit" value="Save">
+        <input type="submit" value="Save" class="button">
     </form>
     <form action="/profile">
-        <input type="submit" value="Cancel">
+        <input type="submit" value="Cancel" class="danger">
     </form>
+    </div>
 </body>
 </html>
