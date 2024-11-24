@@ -124,7 +124,7 @@ button:hover {
 #loginImage{
     max-width: 100%;
     max-height: 100%;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px 0 0 10px;
     object-fit: scale-down;
 }
 
@@ -151,7 +151,7 @@ a:hover {
     background-color: transparent;
     transition: all 0.3s;
 }
-.danger:link, danger:visited {
+.danger:link, .danger:visited {
     border: 3px solid red;
     color: red;
 }
