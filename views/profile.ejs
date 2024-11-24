@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="divBg">
-<div class="base">
+<div class="base" style="max-width: 300px;">
     <h1>Profile</h1>
     <div style="display: table">
         <div style="display: table-row">
@@ -20,7 +20,7 @@
                 <span>First Name: <%=firstName%></span><br>
                 <span>Last Name: <%=lastName%></span>
             </div>
-            <div style="display: table-cell">
+            <div style="display: table-cell; text-align: right">
                 <form action="/profile/changeName">
                     <button type="submit" >Edit</button>
                 </form>
@@ -30,7 +30,7 @@
             <div style="display: table-cell">
                 <span>Email: <%=email%></span>
             </div>
-            <div style="display: table-cell">
+            <div style="display: table-cell; text-align: right">
                 <form action="/profile/changeEmail">
                     <button type="submit">Edit</button>
                 </form>
@@ -39,7 +39,7 @@
         </div>
         <div style="display: table-row">
             <div style="display: table-cell"><span>Password</span></div>
-            <div style="display: table-cell">
+            <div style="display: table-cell; text-align: right">
                 <form action="/profile/changePassword">
                     <button type="submit">Edit</button><br>
                 </form></div>
@@ -48,7 +48,7 @@
             <div style="display: table-cell"><form action="/home">
                     <button type="submit">Home</button>
                 </form></div>
-            <div style="display: table-cell"><form action="/profile/deleteAccount">
+            <div style="display: table-cell; text-align: right"><form action="/profile/deleteAccount">
                     <button type="submit" class="danger">Delete Account</button>
                 </form></div>
 
