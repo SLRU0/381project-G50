@@ -179,3 +179,19 @@ a:hover {
     background-repeat: no-repeat;
     width: 100%;
 }
+
+.listuser-page ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+    box-sizing: border-box;
+}
+
+.listuser-page li {
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.listuser-page .user {
+    padding: 10px;
+}
