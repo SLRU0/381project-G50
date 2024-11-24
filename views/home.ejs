@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-    <%if (admin===true){%>
-        Welcome! <%=name%> (<%=adminstring%>)<br><br>
-        <a href="/profile">profile</a><br><br>
-        <a href="api/user">All user profile</a><br><br>
-        <a href="/api/borrow">List all books</a><br><br>
-        <a href="/api/add">AddBooks</a><br><br>
-        <a href="/logout">Logout</a>
-    <%} else {%>
-        Welcome! <%=name%><br><br>
-        <a href="/profile">profile</a><br><br>
-        <a href="/api/borrow">Borrow</a><br><br>
-        <a href="/api/books">Books</a><br><br>
-        <a href="/logout">Logout</a>
-    <%}%>
-</body>
+        <head>
+                <link rel="stylesheet" type="text/css" href="/css/style.css">
+                <meta charset="UTF-8">
+                <title>Home</title>
+        </head>
+        <body>
+        <div class="divBg" >
+                <%if (admin===true){%>
+                <div class="base" style="text-align: center;">
+                        <h1 style="text-align: center">Welcome!</h1>
+                        <h3 style="text-align: center"><%=name%> (<%=adminstring%>)</h3><br><br>
+                        <div class="user">
+                                <a href="api/user">All user profile</a>
+                                <a href="/api/borrow">List all books</a>
+                                <a href="/api/add">AddBooks</a>
+                        </div>
+                        <div class="user">
+                                <a href="/profile">Profile</a>
+                                <a href="/logout" class="danger">Logout</a>
+                        </div>
+                </div>
+
+                <%} else {%>
+                <div class="base" style="text-align: center;">
+                        <div class="user">
+                                <h1 style="text-align: center">Welcome!</h1>
+                                <h3 style="text-align: center"><%=name%></h3><br><br>
+                                <a href="/profile">Profile</a><br><br>
+                                <a href="/api/borrow">Borrow</a><br><br>
+                                <a href="/api/books">Books</a><br><br>
+                                <a href="/logout" class="danger">Logout</a>
+                        </div>
+                </div>
+
+                <%}%>
+        </div>
+        </body>
 </html>

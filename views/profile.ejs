@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <meta charset="UTF-8">
     <title>Profile</title>
     <style>
@@ -10,33 +11,50 @@
     </style>
 </head>
 <body>
+<div class="divBg">
+<div class="base" style="max-width: 300px;">
     <h1>Profile</h1>
-    <div class="box">
-        <div>
-            <form action="/profile/changeName">
-                <span>First Name: <%=firstName%></span><button type="submit" >Edit</button><br>
+    <div style="display: table">
+        <div style="display: table-row">
+            <div style="display: table-cell">
+                <span>First Name: <%=firstName%></span><br>
                 <span>Last Name: <%=lastName%></span>
-                <br>
-            </form>
+            </div>
+            <div style="display: table-cell; text-align: right">
+                <form action="/profile/changeName">
+                    <button type="submit" >Edit</button>
+                </form>
+            </div>
         </div>
-        <div>
-            <form action="/profile/changeEmail">
+        <div style="display: table-row">
+            <div style="display: table-cell">
                 <span>Email: <%=email%></span>
-                <button type="submit">Edit</button>
-            </form>
+            </div>
+            <div style="display: table-cell; text-align: right">
+                <form action="/profile/changeEmail">
+                    <button type="submit">Edit</button>
+                </form>
+            </div>
+
         </div>
-        <div>
-            <form action="/profile/changePassword">
-                <span>Password</span>
-                <button type="submit">Edit</button><br>
-            </form>
+        <div style="display: table-row">
+            <div style="display: table-cell"><span>Password</span></div>
+            <div style="display: table-cell; text-align: right">
+                <form action="/profile/changePassword">
+                    <button type="submit">Edit</button><br>
+                </form></div>
+        </div>
+        <div style="display: table-row">
+            <div style="display: table-cell"><form action="/home">
+                    <button type="submit">Home</button>
+                </form></div>
+            <div style="display: table-cell; text-align: right"><form action="/profile/deleteAccount">
+                    <button type="submit" class="danger">Delete Account</button>
+                </form></div>
+
         </div>
     </div>
-    <form action="/home">
-        <div><button type="submit">home</button></div>
-    </form>
-    <form action="/profile/deleteAccount">
-        <div><button type="submit">DeleteAccount</button></div>
-    </form>
+</div>
+</div>
 </body>
 </html>

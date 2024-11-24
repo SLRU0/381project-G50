@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
-<body>
+<body class="divBg">
+<div class="base" style="max-width: 300px">
     <!--Author: String,
     Title: String,
     ISBN: String,
@@ -17,11 +19,12 @@
             <input type="text" name="ISBN" placeholder="ISBN"><br><br>
             <input type="text" name="publisher" placeholder="Publisher"><br><br>
             <input type="file" name="image"><br><br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" class="button">
         </label>
     </form>
     <form action="/home">
-        <input type="submit" value="Home">
+        <input type="submit" value="Home" class="button">
     </form>
+</div>
 </body>
 </html>

@@ -1,0 +1,181 @@
+body {
+    display: flex;
+    font-family: Arial;
+    height: 100vh;
+    margin: 0;
+}
+
+.loginPage{
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 100;
+    margin: 0;
+    color: black;
+    text-align: left;
+    padding: 0 10px 10px 0;
+}
+h2 {
+    font-size: 30px;
+    font-weight: 100;
+    margin: 0;
+    color: grey;
+}
+h3 {
+    font-size: 20px;
+    font-weight: 100;
+    margin: 0;
+    color: grey;
+    padding: 0 0 10px 0;
+}
+h4 {
+    font-size: 15px;
+    font-weight: 100;
+    margin: 0;
+    color: grey;
+    text-align: left;
+}
+
+.row:after {
+    clear: both;
+    display: table;
+}
+
+.column {
+    padding: 0;
+    float: left;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.left {
+    width: 60%;
+}
+
+.right {
+    width: 40%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+form {
+    margin: 10px 10px 10px 0;
+    color: grey;
+}
+form input[type=radio] {
+    clear: none;
+    cursor: pointer;
+}
+
+input {
+    border-radius: 10px;
+    border: 1px solid grey;
+    display: block;
+    margin: 10px 10px 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+
+button {
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    cursor: pointer;
+    max-width: 300px;
+    border-radius: 10px;
+    border: 3px solid aquamarine;
+    background-color: transparent;
+    transition: all 0.3s;
+}
+button:hover {
+    background-color: aquamarine;
+}
+.button {
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    cursor: pointer;
+    max-width: 300px;
+    border-radius: 10px;
+    border: 3px solid aquamarine;
+    background-color: transparent;
+    transition: all 0.3s;
+}
+.button:hover {
+    background-color: aquamarine;
+}
+.btnLogin{
+    padding: 10px;
+    margin: 10px 10px 10px 0;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    border: 3px solid aquamarine;
+    font-weight: bold ;
+    background-color: transparent;
+    transition: all 0.3s;
+}
+
+
+#loginImage{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px 0 0 10px;
+    object-fit: scale-down;
+}
+
+a:link, a:visited {
+    background-color: transparent;
+    color: black;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    align-content: center;
+    border: 3px solid aquamarine;
+    border-radius: 10px;
+    margin: 5px;
+    transition: all 0.3s;
+    display: inline-block;
+}
+a:hover {
+    background-color: aquamarine;
+
+}
+.danger{
+    border: 3px solid red;
+    color: red;
+    background-color: transparent;
+    transition: all 0.3s;
+}
+.danger:link, .danger:visited {
+    border: 3px solid red;
+    color: red;
+}
+.danger:hover {
+    background-color: red;
+    color: white;
+}
+
+
+.base {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 100px auto;
+}
+
+.user {
+    display: inline-block;
+    width: 100%
+}
+
+.divBg{
+    display: block;background-image: url('http://picsum.photos/id/385/1920/1080');
+    background-repeat: no-repeat;
+    width: 100%;
+}
