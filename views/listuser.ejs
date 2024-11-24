@@ -4,37 +4,30 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <style>
-        ul{
-            list-style-type: none;
-            padding-left: 0;
-            margin-left: 0;
-            box-sizing: border-box;
-        }
-        li{
-            border: 1px solid black;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
-<body style="display: contents">
-    <form action="/api/user">
-        <input type="text" name="search" placeholder="search">
-    </form>
-    <ul class="list">
-        <%for (let i=0;i<data.length;i++){%>
-            <li>
-                <b>FirstName :</b><%=data[i].first_name%><br>
-                <b>LastName :</b><%=data[i].last_name%><br>
-                <b>Email :</b><%=data[i].email%><br>
-                <b>Password</b><br>
-                <b>Gander :</b><%=data[i].gander%><br>
-                <b>Admin :</b><%=data[i].admin%><br>
-            </li>
-        <%}%>
-    </ul>
-    <form action="/home">
-        <input type="submit" value="Home">
-    </form>
+<body class="listuser-page">
+    <div class="divBg">
+        <div class="base" style="max-width: 30%">
+            <form action="/api/user">
+                <input type="text" name="search" placeholder="search" class="search">
+            </form>
+            <ul class="list">
+                <% for (let i = 0; i < data.length; i++) { %>
+                    <li>
+                        <div class="user">
+                            FirstName : <%= data[i].first_name %><br>
+                            LastName : <%= data[i].last_name %><br>
+                            Email : <%= data[i].email %><br>
+                            Password : <%= data[i].password %><br>
+                            Gender : <%= data[i].gender %><br>
+                            Admin : <%= data[i].admin %><br>
+                        </div>
+                    </li>
+                <% } %>
+            </ul>
+            <form action="/home">
+                <input type="submit" value="Home">
+            </form>
+        </div>
+    </div>
 </body>
-</html>
