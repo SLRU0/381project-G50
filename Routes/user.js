@@ -19,7 +19,8 @@ router.get('/user/:_id',checkSession, async (req, res) => {
         const selectusers = await user.find({_id:req.params._id});
         console.log(selectusers.length);
         console.log(selectusers);
-        res.render('listuser', {data: selectusers});
+        //res.render('listuser', {data: selectusers});
+        res.status(200).json({msg:selectusers}).end();
     }catch (e) {
         console.log(e)
         res.status(500).json({msg:'Internal Server Error' });

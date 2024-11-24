@@ -29,7 +29,7 @@ mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
         console.log('MongoDB Connected!');
         app.listen(port, () => {
             // this for the local testing.
-            console.log(`Listening on port http://localhost:${port}/login`);
+            console.log(`Listening on port http://localhost:${port}/`);
         });
     })
     .catch((err)=>{console.log(err)})
