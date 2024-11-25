@@ -78,6 +78,7 @@ router.post('/', async (req, res) => {
                 console.log('login success!');
                 //record the login user by session
                 req.session.userdata = tempUserData;
+                console.log(req.session.userdata);
                 //check admin is true
                 if (tempUserData.admin===true){
                     req.session.adminstring = 'admin';

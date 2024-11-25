@@ -27,19 +27,20 @@ const checkSession = (req, res, next) => {
 //library books
 //for normal users
 router.get('/books', checkSession, async (req, res) => {
-    const countboos = await borrowedbookdata.find();
+    const countbooks = await borrowedbookdata.find({UserID: req.session.userdata._id,})
     const allLibraryBooks = await bookdata.find();
-    console.log(allLibraryBooks)
-    if (countboos.length === 0) {
+    console.log('this is length' + countbooks.length)
+    console.log(req.session.userdata._id)
+    if (countbooks.length === 0) {
         res.render('books', {
             msg: 'No books found.',
-            books: countboos,
+            books: countbooks,
             librarybooks: allLibraryBooks,
         });
     } else {
         res.render('books', {
             msg: null,
-            books: countboos,
+            books: countbooks,
             librarybooks: allLibraryBooks,
         })
     }
@@ -69,7 +70,7 @@ router.get('/borrow', checkSession, async (req, res) => {
     }
 })
 
-//restful api - get list one book
+
 router.get('/borrow/:ISBN', checkSession, async (req, res) => {
     try {
         const allbookdata = await bookdata.find({ISBN: req.params.ISBN});
@@ -90,22 +91,31 @@ router.get('/borrow/:ISBN', checkSession, async (req, res) => {
 //for user borrow books
 router.post('/borrow', checkSession, async (req, res) => {
     const allbookdata = await bookdata.find();
-    const bbdata = await borrowedbookdata.findOne({ISBN: req.body.isbn})
-    if (await borrowedbookdata.findOne({ISBN: req.body.isbn})) {
-        console.log('user already borrowed')
-        if (bbdata.Borrowed === true
-            &&
-            req.session.userdata._id === bbdata.UserID
-            &&
-            req.body.isbn === bbdata.ISBN) {
-            console.log('in')
+    const bbcount = await borrowedbookdata.find({UserID: req.session.userdata._id});
+    if (bbcount.length > 0) {
+        if (await borrowedbookdata.findOne({ISBN: req.body.isbn,UserID: req.session.userdata._id})) {
             res.render('listbooks', {
                 booklength: allbookdata.length,
                 bookarray: allbookdata,
                 searchplaceholder: req.query.search,
                 IsAdmin: req.session.userdata.admin,
                 msg: 'You already borrowed this book ' + req.body.isbn,
-            })
+            });
+        }else{
+            const UserBorrowedBooks = await new borrowedbookdata({
+                ISBN: req.body.isbn,
+                Borrowed: true,
+                UserName: req.session.userdata.first_name + ' ' + req.session.userdata.last_name,
+                UserID: req.session.userdata._id,
+            });
+            await UserBorrowedBooks.save();
+            res.render('listbooks', {
+                booklength: allbookdata.length,
+                bookarray: allbookdata,
+                searchplaceholder: req.query.search,
+                IsAdmin: req.session.userdata.admin,
+                msg: 'You have borrowed this book ' + req.body.isbn,
+            });
         }
     } else {
         const UserBorrowedBooks = await new borrowedbookdata({
@@ -123,6 +133,7 @@ router.post('/borrow', checkSession, async (req, res) => {
             msg: 'You have borrowed this book ' + req.body.isbn,
         })
     }
+
 })
 
 
