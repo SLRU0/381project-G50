@@ -81,15 +81,17 @@ An Online Library Application "**Online Library**".
 3. RESTful CRUD Services and testing
    1. Set session
    - ```curl -c cookies.txt -d "email=Ko@gmail.com&password=1" https://deploygroup50.azurewebsites.net/```
-   2. Testing command
+   2. Testing command 
+   3. **:email => input email** 
+   4. **You can know all user email through admin user. For example Ko@gmail.com** 
       - Method GET
-        - ```curl -b cookies.txt https://deploygroup50.azurewebsites.net/api/user/673f13ea8480fd3c43cc48e0 //673f13ea8480fd3c43cc48e0 is mongodb _id```
+        - ```curl -b cookies.txt https://deploygroup50.azurewebsites.net/api/user/Ko@gmail ```
       - Method POST (Create user)
-        - ```curl -X POST -b cookies.txt -H "Content-Type: application/json" -d '{"first_name":"John Doe","last_name":30,"email":"test@test","password":"1","gander":"Male","admin":"true"}' [http://localhost:8099/api/user](https://deploygroup50.azurewebsites.net/) //{"first_name":"John Doe","last_name":30,"email":"test@test","password":"1","gander":"Male","admin":"true"}```
+        - ```curl -X POST -b cookies.txt -H "Content-Type: application/json" -d '{"first_name":"John Doe","last_name":30,"email":"test@test","password":"1","gander":"Male","admin":"true"}' https://deploygroup50.azurewebsites.net/```
       - Method PUT (Update)
-        - ```curl -X PUT -b cookies.txt -H "Content-Type: application/json" -d '{"first_name":"John ooo"}' https://deploygroup50.azurewebsites.net/api/user/673f13ea8480fd3c43cc48e0```
+        - ```curl -X PUT -b cookies.txt -H "Content-Type: application/json" -d '{"first_name":"John ooo"}' https://deploygroup50.azurewebsites.net/api/user/:email```
       - DELETE curl (delete above command for demo test)
-        - ```curl -X DELETE -b cookies.txt https://deploygroup50.azurewebsites.net/api/user/6743237867ef72e231daae62```
+        - ```curl -X DELETE -b cookies.txt https://deploygroup50.azurewebsites.net/api/user/:email```
 ## Operation Guides for user
 These are the links to different parts of guides:
 

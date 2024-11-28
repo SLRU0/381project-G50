@@ -14,12 +14,9 @@ const checkSession = (req, res, next) => {
 }
 
 //read
-router.get('/user/:_id',checkSession, async (req, res) => {
+router.get('/user/:email',checkSession, async (req, res) => {
     try{
-        const selectusers = await user.find({_id:req.params._id});
-        console.log(selectusers.length);
-        console.log(selectusers);
-        //res.render('listuser', {data: selectusers});
+        const selectusers = await user.find({email:req.params.email});
         res.status(200).json({msg:selectusers}).end();
     }catch (e) {
         console.log(e)
@@ -31,20 +28,48 @@ router.get('/user/:_id',checkSession, async (req, res) => {
 router.get('/user',checkSession, async (req, res) => {
     try{
         if (req.query.search===undefined || req.query.search==='' ){
-            console.log('hi')
             const allusers = await user.find();
             res.render('listuser', {data: allusers});
         }else{
-            const selectusers = await user.find(
-                {$or:[{first_name:req.query.search},
-                        {last_name:req.query.search},
-                        {email:req.query.search},
-                        {gander:req.query.search},
-                        {admin:req.query.search === 'true'},
-                    ]
-                });
-            console.log(selectusers)
-            res.render('listuser', {data: selectusers});
+            console.log(req.query.search)
+            switch (req.query.search){
+                case 'true':{
+                    const selectusers = await user.find({admin:true});
+                    res.render('listuser', {data: selectusers});
+                    break;
+                }
+                case 'false':{
+                    const selectusers = await user.find({admin:false});
+                    res.render('listuser', {data: selectusers});
+                    break;
+                }
+                case 'Male':{
+                    const selectusers = await user.find({gander:'Male'});
+                    res.render('listuser', {data: selectusers});
+                    break;
+                }
+                case 'Female':{
+                    const selectusers = await user.find({gander:'Female'});
+                    res.render('listuser', {data: selectusers});
+                    break;
+                }
+                case 'all':{
+                    const allusers = await user.find();
+                    res.render('listuser', {data: allusers});
+                    break;
+                }
+                default:{
+                    if (req.query.search.includes('@')){
+                        const selectusers = await user.find({email:req.query.search});
+                        res.render('listuser', {data: selectusers});
+                        break;
+                    }else{
+                        const allusers = await user.find();
+                        res.render('listuser', {data: allusers});
+                        break
+                    }
+                }
+            }
         }
 
     }catch (e) {
@@ -80,9 +105,9 @@ router.post('/user',checkSession, async (req, res) => {
 })
 
 //update
-router.put('/user/:_id',checkSession, async (req, res) => {
+router.put('/user/:email',checkSession, async (req, res) => {
     try {
-        const allusers = await user.findOneAndUpdate({_id: req.params._id},
+        const allusers = await user.findOneAndUpdate({email:req.params.email},
             req.body,
             {new: true});
         res.json(allusers);
@@ -93,9 +118,9 @@ router.put('/user/:_id',checkSession, async (req, res) => {
 });
 
 //delete
-router.delete('/user/:_id',checkSession, async (req, res) => {
+router.delete('/user/:email',checkSession, async (req, res) => {
     try {
-        await user.findOneAndDelete({_id: req.params._id});
+        await user.findOneAndDelete({email:req.params.email});
         res.status(200).json({msg:'deleted successful'})
     } catch (e) {
         console.error(e);
