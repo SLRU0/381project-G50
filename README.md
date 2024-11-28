@@ -79,13 +79,13 @@ An Online Library Application "**Online Library**".
    - Delete: Remove an account by pressing "Delete account" button on Profile page
 
 3. RESTful CRUD Services and testing
-   1. Set session
+   **:email => input email** 
+   **You can know all user email through admin user. For example Ko@gmail.com** 
+   1. Login 
    - ```curl -c cookies.txt -d "email=Ko@gmail.com&password=1" https://deploygroup50.azurewebsites.net/```
-   2. Testing command 
-   3. **:email => input email** 
-   4. **You can know all user email through admin user. For example Ko@gmail.com** 
+   2. Testing command
       - Method GET
-        - ```curl -b cookies.txt https://deploygroup50.azurewebsites.net/api/user/Ko@gmail ```
+        - ```curl -b cookies.txt https://deploygroup50.azurewebsites.net/api/user/:email```
       - Method POST (Create user)
         - ```curl -X POST -b cookies.txt -H "Content-Type: application/json" -d '{"first_name":"John Doe","last_name":30,"email":"test@test","password":"1","gander":"Male","admin":"true"}' https://deploygroup50.azurewebsites.net/```
       - Method PUT (Update)
